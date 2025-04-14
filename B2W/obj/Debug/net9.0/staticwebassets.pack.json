@@ -1,0 +1,57 @@
+{
+  "Files": [
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",
+      "PackagePath": "staticwebassets\\cvs\\89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\02d6c72b-51be-4015-be35-f5f741e8d508.png",
+      "PackagePath": "staticwebassets\\images\\02d6c72b-51be-4015-be35-f5f741e8d508.png"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\1bf57171-1fb9-450d-98b7-ce0728951163.jpg",
+      "PackagePath": "staticwebassets\\images\\1bf57171-1fb9-450d-98b7-ce0728951163.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\359dbdb8-5e3d-412e-9720-ab2b674cad7d.jpeg",
+      "PackagePath": "staticwebassets\\images\\359dbdb8-5e3d-412e-9720-ab2b674cad7d.jpeg"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\72598f10-71e5-4fb8-ba61-7532c2434f8e.jpg",
+      "PackagePath": "staticwebassets\\images\\72598f10-71e5-4fb8-ba61-7532c2434f8e.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\90616f9b-ea67-4fa5-8208-3600b84753fc.png",
+      "PackagePath": "staticwebassets\\images\\90616f9b-ea67-4fa5-8208-3600b84753fc.png"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\a7983a1a-1e42-4534-a741-97bdc5c5a136.jpg",
+      "PackagePath": "staticwebassets\\images\\a7983a1a-1e42-4534-a741-97bdc5c5a136.jpg"
+    },
+    {
+      "Id": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\images\\efb79b65-74b4-484f-b428-5946087719e8.jpeg",
+      "PackagePath": "staticwebassets\\images\\efb79b65-74b4-484f-b428-5946087719e8.jpeg"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.B2W.Microsoft.AspNetCore.StaticWebAssetEndpoints.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssetEndpoints.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.B2W.Microsoft.AspNetCore.StaticWebAssets.props",
+      "PackagePath": "build\\Microsoft.AspNetCore.StaticWebAssets.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.build.B2W.props",
+      "PackagePath": "build\\B2W.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildMultiTargeting.B2W.props",
+      "PackagePath": "buildMultiTargeting\\B2W.props"
+    },
+    {
+      "Id": "obj\\Debug\\net9.0\\staticwebassets\\msbuild.buildTransitive.B2W.props",
+      "PackagePath": "buildTransitive\\B2W.props"
+    }
+  ],
+  "ElementsToRemove": []
+}
