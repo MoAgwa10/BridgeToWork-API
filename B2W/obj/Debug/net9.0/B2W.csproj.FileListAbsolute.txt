@@ -576,3 +576,4 @@ C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.Up2Da
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.genruntimeconfig.cache
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\ref\B2W.dll
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.sourcelink.json

@@ -1,24 +1,18 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
-using B2W.Models.Authentication;
-using Microsoft.Build.Framework;
+using System.ComponentModel.DataAnnotations;
 
 namespace B2W.Models.User
 {
-    public class Skills
+    public class Cv
     {
-
+        [Key]
         public int Id { get; set; }
 
-        [Required]
-        public string Name { get; set; }
+        public string CvFilePath { get; set; } // أو CvUrl حسب انت هتخزنه ازاي
 
         [ForeignKey("UserProfileId")]
         public int UserProfileId { get; set; }
 
         public UserProfile UserProfile { get; set; }
-
-
-
-
     }
 }

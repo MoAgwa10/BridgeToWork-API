@@ -463,18 +463,19 @@
         }
       }
     },
-    "/api/Education/{applicationUserId}": {
+    "/api/Education/by-profile/{userProfileId}": {
       "get": {
         "tags": [
           "Education"
         ],
         "parameters": [
           {
-            "name": "applicationUserId",
+            "name": "userProfileId",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -484,17 +485,26 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/EducationDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EducationDto"
+                  }
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EducationDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EducationDto"
+                  }
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/EducationDto"
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/EducationDto"
+                  }
                 }
               }
             }
@@ -541,7 +551,7 @@
           }
         }
       },
-      "put": {
+      "patch": {
         "tags": [
           "Education"
         ],
@@ -672,18 +682,19 @@
         }
       }
     },
-    "/api/Experience/{applicationUserId}": {
+    "/api/Experience/{id}": {
       "get": {
         "tags": [
           "Experience"
         ],
         "parameters": [
           {
-            "name": "applicationUserId",
+            "name": "id",
             "in": "path",
             "required": true,
             "schema": {
-              "type": "string"
+              "type": "integer",
+              "format": "int32"
             }
           }
         ],
@@ -709,41 +720,8 @@
             }
           }
         }
-      }
-    },
-    "/api/Experience": {
-      "post": {
-        "tags": [
-          "Experience"
-        ],
-        "requestBody": {
-          "content": {
-            "application/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ExperienceDto"
-              }
-            },
-            "text/json": {
-              "schema": {
-                "$ref": "#/components/schemas/ExperienceDto"
-              }
-            },
-            "application/*+json": {
-              "schema": {
-                "$ref": "#/components/schemas/ExperienceDto"
-              }
-            }
-          }
-        },
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/Experience/{id}": {
-      "put": {
+      },
+      "patch": {
         "tags": [
           "Experience"
         ],
@@ -798,6 +776,86 @@
             }
           }
         ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Experience/by-profile/{userProfileId}": {
+      "get": {
+        "tags": [
+          "Experience"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExperienceDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExperienceDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/ExperienceDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Experience": {
+      "post": {
+        "tags": [
+          "Experience"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExperienceDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExperienceDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ExperienceDto"
+              }
+            }
+          }
+        },
         "responses": {
           "200": {
             "description": "OK"
@@ -1125,6 +1183,158 @@
         }
       }
     },
+    "/api/MillStones/GetAll": {
+      "get": {
+        "tags": [
+          "MillStones"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MillStones/GetById/{id}": {
+      "get": {
+        "tags": [
+          "MillStones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MillStones/GetByProfile/{userProfileId}": {
+      "get": {
+        "tags": [
+          "MillStones"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MillStones": {
+      "post": {
+        "tags": [
+          "MillStones"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/MillStones/{id}": {
+      "patch": {
+        "tags": [
+          "MillStones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/MillStoneDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "MillStones"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Posts/AddPost": {
       "post": {
         "tags": [
@@ -1276,6 +1486,158 @@
         }
       }
     },
+    "/api/Projects/GetAll": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Projects/GetById/{id}": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Projects/GetByProfile/{userProfileId}": {
+      "get": {
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Projects": {
+      "post": {
+        "tags": [
+          "Projects"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Projects/{id}": {
+      "patch": {
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/ProjectsDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Projects"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Search/Usersearch": {
       "get": {
         "tags": [
@@ -1318,7 +1680,7 @@
         }
       }
     },
-    "/api/Skills": {
+    "/api/Skills/GetSkills": {
       "get": {
         "tags": [
           "Skills"
@@ -1354,7 +1716,58 @@
             }
           }
         }
-      },
+      }
+    },
+    "/api/Skills/by-profile/{userProfileId}": {
+      "get": {
+        "tags": [
+          "Skills"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkillsDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkillsDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/SkillsDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/Skills": {
       "post": {
         "tags": [
           "Skills"
@@ -1380,116 +1793,13 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              }
-            }
-          }
-        }
-      }
-    },
-    "/api/Skills/ByUser/{ApplicationUserId}": {
-      "get": {
-        "tags": [
-          "Skills"
-        ],
-        "parameters": [
-          {
-            "name": "ApplicationUserId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SkillsDto"
-                  }
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SkillsDto"
-                  }
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "type": "array",
-                  "items": {
-                    "$ref": "#/components/schemas/SkillsDto"
-                  }
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
     },
     "/api/Skills/{id}": {
-      "get": {
-        "tags": [
-          "Skills"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/SkillsDto"
-                }
-              }
-            }
-          }
-        }
-      },
-      "put": {
+      "patch": {
         "tags": [
           "Skills"
         ],
@@ -1528,9 +1838,7 @@
             "description": "OK"
           }
         }
-      }
-    },
-    "/api/Skills/{id}/{ApplicationUserId}": {
+      },
       "delete": {
         "tags": [
           "Skills"
@@ -1543,14 +1851,6 @@
             "schema": {
               "type": "integer",
               "format": "int32"
-            }
-          },
-          {
-            "name": "ApplicationUserId",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "string"
             }
           }
         ],
@@ -1595,7 +1895,65 @@
         }
       }
     },
-    "/api/UserCertification/AddCertification": {
+    "/api/UserCertification/GetAll": {
+      "get": {
+        "tags": [
+          "UserCertification"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCertification/GetById/{id}": {
+      "get": {
+        "tags": [
+          "UserCertification"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCertification/GetByProfile/{userProfileId}": {
+      "get": {
+        "tags": [
+          "UserCertification"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCertification/Add": {
       "post": {
         "tags": [
           "UserCertification"
@@ -1606,8 +1964,9 @@
               "schema": {
                 "type": "object",
                 "properties": {
-                  "UserId": {
-                    "type": "string"
+                  "UserProfileId": {
+                    "type": "integer",
+                    "format": "int32"
                   },
                   "Description": {
                     "type": "string"
@@ -1619,7 +1978,7 @@
                 }
               },
               "encoding": {
-                "UserId": {
+                "UserProfileId": {
                   "style": "form"
                 },
                 "Description": {
@@ -1639,43 +1998,8 @@
         }
       }
     },
-    "/api/UserCertification/GetAllCertifications": {
-      "get": {
-        "tags": [
-          "UserCertification"
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/UserCertification/GetCertification/{id}": {
-      "get": {
-        "tags": [
-          "UserCertification"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/UserCertification/EditCertification/{id}": {
-      "put": {
+    "/api/UserCertification/Edit/{id}": {
+      "patch": {
         "tags": [
           "UserCertification"
         ],
@@ -1723,10 +2047,167 @@
         }
       }
     },
-    "/api/UserCertification/DeleteCertification/{id}": {
+    "/api/UserCertification/Delete/{id}": {
       "delete": {
         "tags": [
           "UserCertification"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCv": {
+      "get": {
+        "tags": [
+          "UserCv"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "UserCv"
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "UserProfileId": {
+                    "type": "integer",
+                    "format": "int32"
+                  },
+                  "CvFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "UserProfileId": {
+                  "style": "form"
+                },
+                "CvFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCv/by-user/{userProfileId}": {
+      "get": {
+        "tags": [
+          "UserCv"
+        ],
+        "parameters": [
+          {
+            "name": "userProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/UserCv/{id}": {
+      "get": {
+        "tags": [
+          "UserCv"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "UserCv"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "multipart/form-data": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "CvFile": {
+                    "type": "string",
+                    "format": "binary"
+                  }
+                }
+              },
+              "encoding": {
+                "CvFile": {
+                  "style": "form"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "UserCv"
         ],
         "parameters": [
           {
@@ -1808,24 +2289,7 @@
         },
         "responses": {
           "200": {
-            "description": "OK",
-            "content": {
-              "text/plain": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserProfileDto"
-                }
-              },
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserProfileDto"
-                }
-              },
-              "text/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/UserProfileDto"
-                }
-              }
-            }
+            "description": "OK"
           }
         }
       }
@@ -1966,49 +2430,6 @@
             }
           }
         ],
-        "responses": {
-          "200": {
-            "description": "OK"
-          }
-        }
-      }
-    },
-    "/api/UserProfile/UploadProfileImage/{id}": {
-      "post": {
-        "tags": [
-          "UserProfile"
-        ],
-        "parameters": [
-          {
-            "name": "id",
-            "in": "path",
-            "required": true,
-            "schema": {
-              "type": "integer",
-              "format": "int32"
-            }
-          }
-        ],
-        "requestBody": {
-          "content": {
-            "multipart/form-data": {
-              "schema": {
-                "type": "object",
-                "properties": {
-                  "file": {
-                    "type": "string",
-                    "format": "binary"
-                  }
-                }
-              },
-              "encoding": {
-                "file": {
-                  "style": "form"
-                }
-              }
-            }
-          }
-        },
         "responses": {
           "200": {
             "description": "OK"
@@ -2354,7 +2775,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/UserReactionAddDto"
                   }
                 }
               },
@@ -2362,7 +2783,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/UserReactionAddDto"
                   }
                 }
               },
@@ -2370,7 +2791,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/UserReactionAddDto"
                   }
                 }
               }
@@ -2402,7 +2823,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/Post"
                   }
                 }
               },
@@ -2410,7 +2831,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/Post"
                   }
                 }
               },
@@ -2418,7 +2839,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/post"
+                    "$ref": "#/components/schemas/Post"
                   }
                 }
               }
@@ -2536,20 +2957,6 @@
             },
             "nullable": true
           },
-          "userProfilePictures": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserProfilePicture"
-            },
-            "nullable": true
-          },
-          "userCertifications": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/UserCertification"
-            },
-            "nullable": true
-          },
           "jopSeekers": {
             "type": "array",
             "items": {
@@ -2563,6 +2970,19 @@
               "$ref": "#/components/schemas/JopApply"
             },
             "nullable": true
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          },
+          "userProfilePictures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserProfilePicture"
+            },
+            "nullable": true
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false
@@ -2633,6 +3053,141 @@
         },
         "additionalProperties": false
       },
+      "CompanyProfile": {
+        "type": "object",
+        "properties": {
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "about": {
+            "type": "string",
+            "nullable": true
+          },
+          "websiteLink": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessibilityFeatures": {
+            "type": "string",
+            "nullable": true
+          },
+          "openedJobs": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/OpenedJob"
+            },
+            "nullable": true
+          },
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Review"
+            },
+            "nullable": true
+          },
+          "people": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Person"
+            },
+            "nullable": true
+          },
+          "socialMediaLinks": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SocialMediaLink"
+            },
+            "nullable": true
+          },
+          "applicationUser": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Cv": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cvFilePath": {
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CvDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "cvFilePath": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "Education": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "university": {
+            "type": "string",
+            "nullable": true
+          },
+          "faculty": {
+            "type": "string",
+            "nullable": true
+          },
+          "degree": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
       "EducationDto": {
         "type": "object",
         "properties": {
@@ -2654,15 +3209,52 @@
           },
           "startDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "endDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
-          "applicationUserId": {
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Experience": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "jobTitle": {
             "type": "string",
             "nullable": true
+          },
+          "organizationName": {
+            "type": "string",
+            "nullable": true
+          },
+          "startDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "endDate": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
           }
         },
         "additionalProperties": false
@@ -2684,43 +3276,19 @@
           },
           "startDate": {
             "type": "string",
-            "format": "date-time"
+            "format": "date-time",
+            "nullable": true
           },
           "endDate": {
             "type": "string",
-            "format": "date-time"
-          },
-          "applicationUserId": {
-            "type": "string",
+            "format": "date-time",
             "nullable": true
-          }
-        },
-        "additionalProperties": false
-      },
-      "IConstructorBindingFactory": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "IModel": {
-        "type": "object",
-        "properties": {
-          "modelId": {
-            "type": "string",
-            "format": "uuid",
-            "readOnly": true
           },
-          "modelDependencies": {
-            "$ref": "#/components/schemas/RuntimeModelDependencies"
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
-        "additionalProperties": false
-      },
-      "IParameterBindingFactories": {
-        "type": "object",
-        "additionalProperties": false
-      },
-      "ITypeMappingSource": {
-        "type": "object",
         "additionalProperties": false
       },
       "Jop": {
@@ -2898,15 +3466,125 @@
         },
         "additionalProperties": false
       },
-      "MigrationOperation": {
+      "MillStoneDto": {
+        "required": [
+          "title"
+        ],
         "type": "object",
         "properties": {
-          "isReadOnly": {
-            "type": "boolean",
-            "readOnly": true
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
-          "isDestructiveChange": {
-            "type": "boolean"
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "MillStones": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "minLength": 1,
+            "type": "string"
+          },
+          "company": {
+            "type": "string",
+            "nullable": true
+          },
+          "date": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "OpenedJob": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "type": "string",
+            "nullable": true
+          },
+          "type": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "salaryRange": {
+            "type": "string",
+            "nullable": true
+          },
+          "postedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Person": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false
@@ -2981,6 +3659,73 @@
         },
         "additionalProperties": false
       },
+      "Projects": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "ProjectsDto": {
+        "required": [
+          "title"
+        ],
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "title": {
+            "maxLength": 100,
+            "minLength": 1,
+            "type": "string"
+          },
+          "description": {
+            "maxLength": 1000,
+            "type": "string",
+            "nullable": true
+          },
+          "imageUrl": {
+            "maxLength": 500,
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "ReactionType": {
         "type": "object",
         "properties": {
@@ -3040,17 +3785,56 @@
         },
         "additionalProperties": false
       },
-      "RuntimeModelDependencies": {
+      "Review": {
         "type": "object",
         "properties": {
-          "typeMappingSource": {
-            "$ref": "#/components/schemas/ITypeMappingSource"
+          "id": {
+            "type": "integer",
+            "format": "int32"
           },
-          "constructorBindingFactory": {
-            "$ref": "#/components/schemas/IConstructorBindingFactory"
+          "reviewerName": {
+            "type": "string",
+            "nullable": true
           },
-          "parameterBindingFactories": {
-            "$ref": "#/components/schemas/IParameterBindingFactories"
+          "position": {
+            "type": "string",
+            "nullable": true
+          },
+          "comment": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "Skills": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "name": {
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
           }
         },
         "additionalProperties": false
@@ -3066,9 +3850,34 @@
             "type": "string",
             "nullable": true
           },
-          "applicationUserId": {
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "SocialMediaLink": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "platformName": {
             "type": "string",
             "nullable": true
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false
@@ -3079,10 +3888,6 @@
           "certificationId": {
             "type": "integer",
             "format": "int32"
-          },
-          "userId": {
-            "type": "string",
-            "nullable": true
           },
           "description": {
             "type": "string",
@@ -3102,13 +3907,54 @@
             "type": "string",
             "nullable": true
           },
-          "applicationUser": {
-            "$ref": "#/components/schemas/ApplicationUser"
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
           }
         },
         "additionalProperties": false
       },
-      "UserProfileDto": {
+      "UserCertificationDto": {
+        "type": "object",
+        "properties": {
+          "certificationId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "image": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserProfile": {
+        "required": [
+          "email",
+          "firstName",
+          "lastName"
+        ],
         "type": "object",
         "properties": {
           "id": {
@@ -3116,26 +3962,23 @@
             "format": "int32"
           },
           "firstName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "lastName": {
-            "type": "string",
-            "nullable": true
+            "minLength": 1,
+            "type": "string"
           },
           "email": {
+            "minLength": 1,
             "type": "string",
-            "nullable": true
+            "format": "email"
           },
           "gender": {
             "type": "string",
             "nullable": true
           },
           "jobTitle": {
-            "type": "string",
-            "nullable": true
-          },
-          "profileImageUrl": {
             "type": "string",
             "nullable": true
           },
@@ -3169,6 +4012,174 @@
           "applicationUserId": {
             "type": "string",
             "nullable": true
+          },
+          "applicationUser": {
+            "$ref": "#/components/schemas/ApplicationUser"
+          },
+          "userCvId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userCv": {
+            "$ref": "#/components/schemas/Cv"
+          },
+          "experiences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Experience"
+            },
+            "nullable": true
+          },
+          "educations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Education"
+            },
+            "nullable": true
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Skills"
+            },
+            "nullable": true
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/Projects"
+            },
+            "nullable": true
+          },
+          "millStones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MillStones"
+            },
+            "nullable": true
+          },
+          "userProfilePictures": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserProfilePicture"
+            },
+            "nullable": true
+          },
+          "userCertifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserCertification"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserProfileDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobType": {
+            "type": "string",
+            "nullable": true
+          },
+          "workModel": {
+            "type": "string",
+            "nullable": true
+          },
+          "experienceLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "desiredJobTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabilityType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fontSize": {
+            "type": "string",
+            "nullable": true
+          },
+          "darkMode": {
+            "type": "boolean"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "skills": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/SkillsDto"
+            },
+            "nullable": true
+          },
+          "educations": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/EducationDto"
+            },
+            "nullable": true
+          },
+          "experiences": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ExperienceDto"
+            },
+            "nullable": true
+          },
+          "projects": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/ProjectsDto"
+            },
+            "nullable": true
+          },
+          "millStones": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/MillStoneDto"
+            },
+            "nullable": true
+          },
+          "userCertifications": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/UserCertificationDto"
+            },
+            "nullable": true
+          },
+          "userProfilePicture": {
+            "$ref": "#/components/schemas/UserProfilePictureDto"
+          },
+          "cv": {
+            "$ref": "#/components/schemas/CvDto"
           }
         },
         "additionalProperties": false
@@ -3199,6 +4210,20 @@
           },
           "applicationUser": {
             "$ref": "#/components/schemas/ApplicationUser"
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserProfilePictureDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "url": {
+            "type": "string",
+            "nullable": true
           }
         },
         "additionalProperties": false
@@ -3264,35 +4289,6 @@
           "reactionTypeId": {
             "type": "integer",
             "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "post": {
-        "type": "object",
-        "properties": {
-          "targetModel": {
-            "$ref": "#/components/schemas/IModel"
-          },
-          "upOperations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MigrationOperation"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "downOperations": {
-            "type": "array",
-            "items": {
-              "$ref": "#/components/schemas/MigrationOperation"
-            },
-            "nullable": true,
-            "readOnly": true
-          },
-          "activeProvider": {
-            "type": "string",
-            "nullable": true
           }
         },
         "additionalProperties": false

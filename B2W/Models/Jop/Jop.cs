@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using System.Text.Json.Serialization;
+using B2W.Models.CompanyProfile;
 
 namespace B2W.Models.Jop
 {
@@ -46,6 +47,11 @@ namespace B2W.Models.Jop
 
         // الطلبات المقدمة لهذه الوظيفة
         public virtual ICollection<JopApply> JopApplies { get; set; } = new List<JopApply>();
+
+        [ForeignKey("CompanyProfileId")]
+        public int CompanyProfileId { get; set; }
+
+        public CompanyProfile.CompanyProfile CompanyProfile { get; set; }
 
 
 

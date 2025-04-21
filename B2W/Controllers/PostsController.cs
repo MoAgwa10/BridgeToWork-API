@@ -1,6 +1,7 @@
 ﻿using B2W.Models;
 using B2W.Models.Dto;
 using B2W.Models.Userpost;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -19,6 +20,7 @@ namespace B2W.Controllers
 
 
         //Add Post
+        [Authorize(Roles = "User")]
         [HttpPost("AddPost")]
         public async Task<IActionResult> AddPost([FromForm] PostDto postDto)
         {

@@ -2,7 +2,8 @@
 {
     public class UserCertificationAddDto
     {
-        public string UserId { get; set; } = null!;
+        public int UserProfileId { get; set; }
+
         public string Description { get; set; } = null!;
         public IFormFile? Image { get; set; }
     }

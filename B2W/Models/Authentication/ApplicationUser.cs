@@ -21,12 +21,11 @@ namespace B2W.Models.Authentication
         public virtual ICollection<Comment> Comment { get; set; } = new List<Comment>();
         public virtual ICollection<Jop.Jop> JopSeekers { get; set; } = new List<Jop.Jop>();
         public virtual ICollection<JopApply> JopApplies { get; set; } = new List<JopApply>();
-        public UserProfile UserProfile { get; set; }
-        public ICollection<Experience> Experience { get; set; }
-        public ICollection<Education> Educations { get; set; }
-        public ICollection<Skills> Skills { get; set; }
+        public  UserProfile UserProfile { get; set; }
         public virtual ICollection<UserProfilePicture> UserProfilePictures { get; set; } = new List<UserProfilePicture>();
-        public virtual ICollection<UserCertification> UserCertifications { get; set; } = new List<UserCertification>();
+       
+
+        public CompanyProfile.CompanyProfile CompanyProfile { get; set; }
 
 
 

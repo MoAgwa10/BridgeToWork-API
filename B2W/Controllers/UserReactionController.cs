@@ -1,5 +1,6 @@
 ﻿using B2W.Models;
 using B2W.Models.Dto;
+using B2W.Models.Userpost;
 using B2W.Models.UserRecations;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -209,7 +210,7 @@ namespace B2W.Controllers
         }
 
         [HttpGet("users/{userd}")]
-        public async Task<ActionResult<IEnumerable<UserReactionAddDto>>> GetUserReactionByUserId(string userd)
+        public async Task<ActionResult<IEnumerable<Post>>> GetUserReactionByUserId(string userd)
         {
             // Retrieve posts for the specified user
             var UserReactions = await _context.userReactions

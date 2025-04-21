@@ -1,5 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations.Schema;
 using B2W.Models.Authentication;
+using Microsoft.Build.Framework;
 
 namespace B2W.Models.User
 {
@@ -7,16 +8,23 @@ namespace B2W.Models.User
     {
 
         public int Id { get; set; }
+
+        [Required]
         public string University { get; set; }
+
         public string Faculty { get; set; }
+
         public string Degree { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
+
+        [Required]
+        public DateTime? StartDate { get; set; }
+
+        public DateTime? EndDate { get; set; }
 
        
-        public string ApplicationUserId { get; set; } 
+        [ForeignKey("UserProfileId")]
+        public int UserProfileId { get; set; }
 
-        [ForeignKey("ApplicationUserId")]
-        public ApplicationUser User { get; set; } 
+        public UserProfile UserProfile { get; set; }
     }
 }

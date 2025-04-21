@@ -4,6 +4,7 @@ using B2W.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 
 namespace B2W.Controllers
@@ -18,7 +19,7 @@ namespace B2W.Controllers
         {
             _context = context;
         }
-
+        [Authorize(Roles = "User")]
         [HttpPost("Apply")]
         public async Task<IActionResult> Apply([FromForm] JopApplyDto jopApplyDto, IFormFile cvFile)
         {

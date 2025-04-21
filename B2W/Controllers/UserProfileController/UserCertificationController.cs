@@ -4,8 +4,9 @@ using B2W.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using B2W.Dto.UserProfileDtos;
 
-namespace B2W.Controllers
+namespace B2W.Controllers.UserProfileController
 {
     [Route("api/[controller]")]
     [ApiController]
@@ -17,26 +18,53 @@ namespace B2W.Controllers
             _context = context;
         }
 
+        // ✅ GET: Get all certifications
+        [HttpGet("GetAll")]
+        public async Task<IActionResult> GetAll()
+        {
+            var certifications = await _context.userCertifications.ToListAsync();
+            return Ok(certifications);
+        }
 
-        // Add Certification
-        [HttpPost("AddCertification")]
-        public async Task<IActionResult> AddCertification([FromForm] UserCertificationAddDto certificationDto)
+        // ✅ GET: Get certification by Id
+        [HttpGet("GetById/{id}")]
+        public async Task<IActionResult> GetById(int id)
+        {
+            var certification = await _context.userCertifications.FindAsync(id);
+            if (certification == null)
+                return NotFound("Certification not found");
+
+            return Ok(certification);
+        }
+
+        // ✅ GET: Get certifications by UserProfileId
+        [HttpGet("GetByProfile/{userProfileId}")]
+        public async Task<IActionResult> GetByProfile(int userProfileId)
+        {
+            var certifications = await _context.userCertifications
+                .Where(c => c.UserProfileId == userProfileId)
+                .ToListAsync();
+
+            return Ok(certifications);
+        }
+
+        // ✅ POST: Add new certification
+        [HttpPost("Add")]
+        public async Task<IActionResult> Add([FromForm] UserCertificationAddDto dto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
-            string imagePath = null;
-            if (certificationDto.Image != null)
+            string? imagePath = null;
+            if (dto.Image != null)
             {
-                imagePath = await SaveImageAsync(certificationDto.Image);
+                imagePath = await SaveImageAsync(dto.Image);
             }
 
             var certification = new UserCertification
             {
-                UserId = certificationDto.UserId,
-                Description = certificationDto.Description,
+                UserProfileId = dto.UserProfileId,
+                Description = dto.Description,
                 CreatedAt = DateTime.UtcNow,
                 Image = imagePath
             };
@@ -47,58 +75,32 @@ namespace B2W.Controllers
             return Ok(certification);
         }
 
-        //Get All Certifications
-        [HttpGet("GetAllCertifications")]
-        public async Task<IActionResult> GetAllCertifications()
-        {
-            var certifications = await _context.userCertifications.ToListAsync();
-            return Ok(certifications);
-        }
-
-
-        // Get Certification by id
-        [HttpGet("GetCertification/{id}")]
-        public async Task<IActionResult> GetCertification(int id)
-        {
-            var certification = await _context.userCertifications.FindAsync(id);
-            if (certification == null)
-            {
-                return NotFound("Certification Not Found.");
-            }
-            return Ok(certification);
-        }
-
-
-        // Edit Certification
-        [HttpPut("EditCertification/{id}")]
-        public async Task<IActionResult> EditCertification(int id, [FromForm] UserCertificationEditDto certificationDto)
+        // ✅ PATCH: Edit certification
+        [HttpPatch("Edit/{id}")]
+        public async Task<IActionResult> Edit(int id, [FromForm] UserCertificationEditDto dto)
         {
             if (!ModelState.IsValid)
-            {
                 return BadRequest(ModelState);
-            }
 
             var certification = await _context.userCertifications.FindAsync(id);
             if (certification == null)
-            {
-                return NotFound("Certification Not Found.");
-            }
+                return NotFound("Certification not found");
 
-            certification.Description = certificationDto.Description;
+            certification.Description = dto.Description;
             certification.UpdatedAt = DateTime.UtcNow;
 
-            if (certificationDto.Image != null)
+            if (dto.Image != null)
             {
+                // Delete old image
                 if (!string.IsNullOrEmpty(certification.Image))
                 {
                     var oldImagePath = Path.Combine("wwwroot", certification.Image.TrimStart('/'));
                     if (System.IO.File.Exists(oldImagePath))
-                    {
                         System.IO.File.Delete(oldImagePath);
-                    }
                 }
 
-                certification.Image = await SaveImageAsync(certificationDto.Image);
+                // Save new image
+                certification.Image = await SaveImageAsync(dto.Image);
             }
 
             _context.userCertifications.Update(certification);
@@ -107,44 +109,36 @@ namespace B2W.Controllers
             return Ok(certification);
         }
 
-
-
-        // Delete Certification
-        [HttpDelete("DeleteCertification/{id}")]
-        public async Task<IActionResult> DeleteCertification(int id)
+        // ✅ DELETE: Delete certification
+        [HttpDelete("Delete/{id}")]
+        public async Task<IActionResult> Delete(int id)
         {
             var certification = await _context.userCertifications.FindAsync(id);
             if (certification == null)
-            {
-                return NotFound("Certification Not Found");
-            }
+                return NotFound("Certification not found");
 
             if (!string.IsNullOrEmpty(certification.Image))
             {
                 var imagePath = Path.Combine("wwwroot", certification.Image.TrimStart('/'));
                 if (System.IO.File.Exists(imagePath))
-                {
                     System.IO.File.Delete(imagePath);
-                }
             }
 
             _context.userCertifications.Remove(certification);
             await _context.SaveChangesAsync();
 
-            return Ok("Certification Deleted");
+            return Ok("Certification deleted");
         }
 
-        // Save image
+        // ✅ Save image helper
         private async Task<string> SaveImageAsync(IFormFile image)
         {
-            var imagesPath = Path.Combine("wwwroot", "certifications");
-            if (!Directory.Exists(imagesPath))
-            {
-                Directory.CreateDirectory(imagesPath);
-            }
+            var folderPath = Path.Combine("wwwroot", "certifications");
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
 
             var fileName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
-            var filePath = Path.Combine(imagesPath, fileName);
+            var filePath = Path.Combine(folderPath, fileName);
 
             using (var stream = new FileStream(filePath, FileMode.Create))
             {

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using B2W.Models.CompanyProfile;
 
 namespace B2W.Models
 {
@@ -34,6 +35,18 @@ namespace B2W.Models
         public DbSet<Education> Educations { get; set; }
         public DbSet<Skills> Skills { get; set; }
         public DbSet<Experience> Experiences { get; set; }
+        public DbSet<CompanyProfile.CompanyProfile> CompanyProfiles { get; set; }
+       
+        public DbSet<CompanyProfile.CompanyProfile> companyProfiles { get; set; }
+        public DbSet<CompanyReview>CompanyReviews {  get; set; }               
+        public DbSet<CompanyEmployee> CompanyEmployees { get; set; }
+        public DbSet<AccessibilityFeature> AccessibilityFeatures { get; set; }
+        public DbSet<MillStones> MillStones { get; set; }
+        public DbSet<Cv> Cvs { get; set; }
+        public DbSet<Projects> Projects { get; set; }
+
+            
+
 
 
 

@@ -1,4 +1,5 @@
 ﻿using B2W.Models.Authentication;
+using B2W.Models.User;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -9,8 +10,6 @@ namespace B2W.Models.UserCertifications
         [Key]
         public int CertificationId { get; set; }
 
-        public string UserId { get; set; } = null!;
-
         public string? Description { get; set; }
 
         public DateTime? CreatedAt { get; set; } = DateTime.UtcNow;
@@ -19,9 +18,11 @@ namespace B2W.Models.UserCertifications
 
         public string? Image { get; set; }
 
+        // ✅ الربط الجديد مع UserProfile
+        [ForeignKey("UserProfile")]
+        public int UserProfileId { get; set; }
 
-        [ForeignKey("UserId")]
-        public virtual ApplicationUser ApplicationUser { get; set; } = null!;
+        public UserProfile UserProfile { get; set; }
 
     }
 }

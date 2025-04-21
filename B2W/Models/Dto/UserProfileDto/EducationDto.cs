@@ -1,4 +1,4 @@
-﻿namespace B2W.Models.Dto
+﻿ namespace B2W.Dto.UserProfileDtos
 {
     public class EducationDto
     {
@@ -6,9 +6,10 @@
         public string University { get; set; }
         public string Faculty { get; set; }
         public string Degree { get; set; }
-        public DateTime StartDate { get; set; }
-        public DateTime EndDate { get; set; }
-        public string ApplicationUserId { get; set; }
+        public DateTime? StartDate { get; set; }
+        public DateTime?EndDate { get; set; }
+        public int UserProfileId { get; set; }
+
 
     }
 }

@@ -231,7 +231,7 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.EducationController",
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
     "Method": "AddEducation",
     "RelativePath": "api/Education",
     "HttpMethod": "POST",
@@ -239,41 +239,15 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "educationDto",
-        "Type": "B2W.Models.Dto.EducationDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.EducationDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.EducationController",
-    "Method": "GetEducationByUser",
-    "RelativePath": "api/Education/{applicationUserId}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "applicationUserId",
-        "Type": "System.String",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "B2W.Models.Dto.EducationDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "B2W.Controllers.EducationController",
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
     "Method": "GetEducation",
     "RelativePath": "api/Education/{id}",
     "HttpMethod": "GET",
@@ -288,7 +262,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "B2W.Models.Dto.EducationDto",
+        "Type": "B2W.Dto.UserProfileDtos.EducationDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -299,10 +273,10 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.EducationController",
-    "Method": "EditEducation",
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
+    "Method": "UpdateEducation",
     "RelativePath": "api/Education/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -312,16 +286,16 @@
         "IsRequired": true
       },
       {
-        "Name": "educationDto",
-        "Type": "B2W.Models.Dto.EducationDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.EducationDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.EducationController",
-    "Method": "RemoveEducation",
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
+    "Method": "DeleteEducation",
     "RelativePath": "api/Education/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -336,7 +310,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.EducationController",
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
+    "Method": "GetEducationsByUserProfile",
+    "RelativePath": "api/Education/by-profile/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.EducationDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
     "Method": "GetEducations",
     "RelativePath": "api/Education/GetEducations",
     "HttpMethod": "GET",
@@ -345,7 +345,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Dto.EducationDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.EducationDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -356,7 +356,7 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.ExperienceController",
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
     "Method": "AddExperience",
     "RelativePath": "api/Experience",
     "HttpMethod": "POST",
@@ -364,30 +364,30 @@
     "Order": 0,
     "Parameters": [
       {
-        "Name": "experienceDto",
-        "Type": "B2W.Dto.ExperienceDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.ExperienceDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.ExperienceController",
-    "Method": "GetExperienceByUser",
-    "RelativePath": "api/Experience/{applicationUserId}",
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
+    "Method": "GetExperienceById",
+    "RelativePath": "api/Experience/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "applicationUserId",
-        "Type": "System.String",
+        "Name": "id",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "B2W.Dto.ExperienceDto",
+        "Type": "B2W.Dto.UserProfileDtos.ExperienceDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -398,10 +398,10 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.ExperienceController",
-    "Method": "EditExperience",
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
+    "Method": "UpdateExperience",
     "RelativePath": "api/Experience/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -411,16 +411,16 @@
         "IsRequired": true
       },
       {
-        "Name": "experienceDto",
-        "Type": "B2W.Dto.ExperienceDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.ExperienceDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.ExperienceController",
-    "Method": "RemoveExperience",
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
+    "Method": "DeleteExperience",
     "RelativePath": "api/Experience/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -435,7 +435,33 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.ExperienceController",
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
+    "Method": "GetExperiencesByUserProfile",
+    "RelativePath": "api/Experience/by-profile/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.ExperienceDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ExperienceController",
     "Method": "GetExperiences",
     "RelativePath": "api/Experience/GetExperiences",
     "HttpMethod": "GET",
@@ -444,7 +470,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.ExperienceDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.ExperienceDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -663,6 +689,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "Add",
+    "RelativePath": "api/MillStones",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.MillStoneDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "Update",
+    "RelativePath": "api/MillStones/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.MillStoneDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "Delete",
+    "RelativePath": "api/MillStones/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "GetAll",
+    "RelativePath": "api/MillStones/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "GetById",
+    "RelativePath": "api/MillStones/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.MillStonesController",
+    "Method": "GetByProfile",
+    "RelativePath": "api/MillStones/GetByProfile/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "B2W.Controllers.PostsController",
     "Method": "AddPost",
     "RelativePath": "api/Posts/AddPost",
@@ -757,6 +878,101 @@
     "ReturnTypes": []
   },
   {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "Add",
+    "RelativePath": "api/Projects",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.ProjectsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "Edit",
+    "RelativePath": "api/Projects/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.ProjectsDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "Delete",
+    "RelativePath": "api/Projects/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "GetAll",
+    "RelativePath": "api/Projects/GetAll",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "GetById",
+    "RelativePath": "api/Projects/GetById/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.ProjectsController",
+    "Method": "GetByProfile",
+    "RelativePath": "api/Projects/GetByProfile/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "B2W.Controllers.SearchController",
     "Method": "SearchJops",
     "RelativePath": "api/Search/Jopsearch",
@@ -789,82 +1005,26 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.SkillsController",
-    "Method": "GetSkills",
-    "RelativePath": "api/Skills",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [],
-    "ReturnTypes": [
-      {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Dto.SkillsDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "B2W.Controllers.SkillsController",
-    "Method": "PostSkill",
+    "ContainingType": "B2W.Controllers.UserProfileController.SkillsController",
+    "Method": "AddSkill",
     "RelativePath": "api/Skills",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "skillDto",
-        "Type": "B2W.Models.Dto.SkillsDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.SkillsDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "B2W.Models.Dto.SkillsDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.SkillsController",
-    "Method": "GetSkill",
+    "ContainingType": "B2W.Controllers.UserProfileController.SkillsController",
+    "Method": "UpdateSkill",
     "RelativePath": "api/Skills/{id}",
-    "HttpMethod": "GET",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      }
-    ],
-    "ReturnTypes": [
-      {
-        "Type": "B2W.Models.Dto.SkillsDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
-  },
-  {
-    "ContainingType": "B2W.Controllers.SkillsController",
-    "Method": "PutSkill",
-    "RelativePath": "api/Skills/{id}",
-    "HttpMethod": "PUT",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -874,17 +1034,17 @@
         "IsRequired": true
       },
       {
-        "Name": "skillDto",
-        "Type": "B2W.Models.Dto.SkillsDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.SkillsDto",
         "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.SkillsController",
+    "ContainingType": "B2W.Controllers.UserProfileController.SkillsController",
     "Method": "DeleteSkill",
-    "RelativePath": "api/Skills/{id}/{ApplicationUserId}",
+    "RelativePath": "api/Skills/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -893,32 +1053,47 @@
         "Name": "id",
         "Type": "System.Int32",
         "IsRequired": true
-      },
-      {
-        "Name": "ApplicationUserId",
-        "Type": "System.String",
-        "IsRequired": true
       }
     ],
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.SkillsController",
-    "Method": "GetSkillsByUser",
-    "RelativePath": "api/Skills/ByUser/{ApplicationUserId}",
+    "ContainingType": "B2W.Controllers.UserProfileController.SkillsController",
+    "Method": "GetSkillsByUserProfile",
+    "RelativePath": "api/Skills/by-profile/{userProfileId}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "ApplicationUserId",
-        "Type": "System.String",
+        "Name": "userProfileId",
+        "Type": "System.Int32",
         "IsRequired": true
       }
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Dto.SkillsDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.SkillsDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.SkillsController",
+    "Method": "GetSkills",
+    "RelativePath": "api/Skills/GetSkills",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.SkillsDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -955,16 +1130,16 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserCertificationController",
-    "Method": "AddCertification",
-    "RelativePath": "api/UserCertification/AddCertification",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "Add",
+    "RelativePath": "api/UserCertification/Add",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "UserId",
-        "Type": "System.String",
+        "Name": "UserProfileId",
+        "Type": "System.Int32",
         "IsRequired": false
       },
       {
@@ -981,9 +1156,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserCertificationController",
-    "Method": "DeleteCertification",
-    "RelativePath": "api/UserCertification/DeleteCertification/{id}",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "Delete",
+    "RelativePath": "api/UserCertification/Delete/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
     "Order": 0,
@@ -997,10 +1172,10 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserCertificationController",
-    "Method": "EditCertification",
-    "RelativePath": "api/UserCertification/EditCertification/{id}",
-    "HttpMethod": "PUT",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "Edit",
+    "RelativePath": "api/UserCertification/Edit/{id}",
+    "HttpMethod": "PATCH",
     "IsController": true,
     "Order": 0,
     "Parameters": [
@@ -1023,9 +1198,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserCertificationController",
-    "Method": "GetAllCertifications",
-    "RelativePath": "api/UserCertification/GetAllCertifications",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "GetAll",
+    "RelativePath": "api/UserCertification/GetAll",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1033,9 +1208,9 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserCertificationController",
-    "Method": "GetCertification",
-    "RelativePath": "api/UserCertification/GetCertification/{id}",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "GetById",
+    "RelativePath": "api/UserCertification/GetById/{id}",
     "HttpMethod": "GET",
     "IsController": true,
     "Order": 0,
@@ -1049,7 +1224,123 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCertificationController",
+    "Method": "GetByProfile",
+    "RelativePath": "api/UserCertification/GetByProfile/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "GetAll",
+    "RelativePath": "api/UserCv",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "Add",
+    "RelativePath": "api/UserCv",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "UserProfileId",
+        "Type": "System.Int32",
+        "IsRequired": false
+      },
+      {
+        "Name": "CvFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "GetById",
+    "RelativePath": "api/UserCv/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "Update",
+    "RelativePath": "api/UserCv/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "CvFile",
+        "Type": "Microsoft.AspNetCore.Http.IFormFile",
+        "IsRequired": false
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "Delete",
+    "RelativePath": "api/UserCv/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserCvController",
+    "Method": "GetByUserProfileId",
+    "RelativePath": "api/UserCv/by-user/{userProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "userProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
     "Method": "GetAllUserProfiles",
     "RelativePath": "api/UserProfile",
     "HttpMethod": "GET",
@@ -1058,7 +1349,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Dto.UserProfileDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Dto.UserProfileDtos.UserProfileDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1069,34 +1360,24 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "PostUserProfile",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
+    "Method": "Create",
     "RelativePath": "api/UserProfile",
     "HttpMethod": "POST",
     "IsController": true,
     "Order": 0,
     "Parameters": [
       {
-        "Name": "userProfileDto",
-        "Type": "B2W.Models.Dto.UserProfileDto",
+        "Name": "dto",
+        "Type": "B2W.Dto.UserProfileDtos.UserProfileDto",
         "IsRequired": true
       }
     ],
-    "ReturnTypes": [
-      {
-        "Type": "B2W.Models.Dto.UserProfileDto",
-        "MediaTypes": [
-          "text/plain",
-          "application/json",
-          "text/json"
-        ],
-        "StatusCode": 200
-      }
-    ]
+    "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "GetUserProfileById",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
+    "Method": "GetById",
     "RelativePath": "api/UserProfile/{id}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -1110,7 +1391,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "B2W.Models.Dto.UserProfileDto",
+        "Type": "B2W.Dto.UserProfileDtos.UserProfileDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1121,8 +1402,8 @@
     ]
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "PatchUserProfile",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
+    "Method": "Patch",
     "RelativePath": "api/UserProfile/{id}",
     "HttpMethod": "PATCH",
     "IsController": true,
@@ -1142,8 +1423,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "DeleteUserProfile",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
+    "Method": "Delete",
     "RelativePath": "api/UserProfile/{id}",
     "HttpMethod": "DELETE",
     "IsController": true,
@@ -1158,8 +1439,8 @@
     "ReturnTypes": []
   },
   {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "GetUserProfileByUserId",
+    "ContainingType": "B2W.Controllers.UserProfileController.UserProfileController",
+    "Method": "GetByUserId",
     "RelativePath": "api/UserProfile/ByUser/{ApplicationUserId}",
     "HttpMethod": "GET",
     "IsController": true,
@@ -1173,7 +1454,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "B2W.Models.Dto.UserProfileDto",
+        "Type": "B2W.Dto.UserProfileDtos.UserProfileDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1182,27 +1463,6 @@
         "StatusCode": 200
       }
     ]
-  },
-  {
-    "ContainingType": "B2W.Controllers.UserProfileController",
-    "Method": "UploadProfileImage",
-    "RelativePath": "api/UserProfile/UploadProfileImage/{id}",
-    "HttpMethod": "POST",
-    "IsController": true,
-    "Order": 0,
-    "Parameters": [
-      {
-        "Name": "id",
-        "Type": "System.Int32",
-        "IsRequired": true
-      },
-      {
-        "Name": "file",
-        "Type": "Microsoft.AspNetCore.Http.IFormFile",
-        "IsRequired": false
-      }
-    ],
-    "ReturnTypes": []
   },
   {
     "ContainingType": "B2W.Controllers.UserProfilePicController",
@@ -1389,7 +1649,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Migrations.post, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Dto.UserReactionAddDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1436,7 +1696,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Migrations.post, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[B2W.Models.Userpost.Post, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",

@@ -4,6 +4,7 @@ using B2W.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authorization;
 
 namespace B2W.Controllers
 {
@@ -20,6 +21,7 @@ namespace B2W.Controllers
 
         // 1. Post Jop
         [HttpPost]
+        [Authorize(Roles = "Admin")]
         public async Task<IActionResult> PostJop([FromBody] JopDto jopDto)
         {
             if (!ModelState.IsValid)
@@ -46,6 +48,18 @@ namespace B2W.Controllers
             return CreatedAtAction(nameof(GetJopById), new { id = jop.JopId }, jop);
         }
 
+        [HttpGet("company/{companyProfileId}")]
+        public async Task<IActionResult> GetCompanyJobs(int companyProfileId)
+        {
+            var jobs = await _context.Jops
+                .Where(j => j.CompanyProfileId == companyProfileId)
+                .ToListAsync();
+
+            if (jobs == null || !jobs.Any())
+                return NotFound("No jobs found for this company.");
+
+            return Ok(jobs);
+        }
         // 2. Edit Jop
         [HttpPut("{id}")]
         public async Task<IActionResult> EditJop(int id, [FromBody] JopDto jopDto)
