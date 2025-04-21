@@ -5,6 +5,154 @@
     "version": "1.0"
   },
   "paths": {
+    "/api/AccessibilityFeature": {
+      "get": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AccessibilityFeature/by-company/{companyProfileId}": {
+      "get": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "parameters": [
+          {
+            "name": "companyProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/AccessibilityFeature/{id}": {
+      "get": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/AccessibilityFeatureDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "AccessibilityFeature"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
     "/api/Authentication/register": {
       "post": {
         "tags": [
@@ -421,6 +569,512 @@
                 }
               }
             }
+          }
+        }
+      }
+    },
+    "/api/CompanyEmployee": {
+      "get": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyEmployee/{id}": {
+      "get": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyEmployee"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyEmployee/company/{companyProfileId}": {
+      "get": {
+        "tags": [
+          "CompanyEmployee"
+        ],
+        "parameters": [
+          {
+            "name": "companyProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyProfile": {
+      "get": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                  }
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                  }
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "type": "array",
+                  "items": {
+                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyProfilseDto"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyProfilseDto"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyProfilseDto"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyProfile/ByUser/{ApplicationUserId}": {
+      "get": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "parameters": [
+          {
+            "name": "ApplicationUserId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "string"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/api/CompanyProfile/{id}": {
+      "get": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "text/plain": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              },
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              },
+              "text/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                }
+              }
+            }
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": { }
+              }
+            },
+            "text/json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": { }
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "type": "object",
+                "additionalProperties": { }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CompanyProfile"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyReview": {
+      "get": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyReview/{id}": {
+      "get": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "patch": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            },
+            "text/json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            },
+            "application/*+json": {
+              "schema": {
+                "$ref": "#/components/schemas/CompanyReview"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "parameters": [
+          {
+            "name": "id",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/CompanyReview/company/{companyProfileId}": {
+      "get": {
+        "tags": [
+          "CompanyReview"
+        ],
+        "parameters": [
+          {
+            "name": "companyProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
           }
         }
       }
@@ -896,6 +1550,29 @@
       "get": {
         "tags": [
           "Job"
+        ],
+        "responses": {
+          "200": {
+            "description": "OK"
+          }
+        }
+      }
+    },
+    "/api/Job/company/{companyProfileId}": {
+      "get": {
+        "tags": [
+          "Job"
+        ],
+        "parameters": [
+          {
+            "name": "companyProfileId",
+            "in": "path",
+            "required": true,
+            "schema": {
+              "type": "integer",
+              "format": "int32"
+            }
+          }
         ],
         "responses": {
           "200": {
@@ -2851,6 +3528,45 @@
   },
   "components": {
     "schemas": {
+      "AccessibilityFeature": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "featureName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "AccessibilityFeatureDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "featureName": {
+            "type": "string",
+            "nullable": true
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "AddRoleModel": {
         "required": [
           "role",
@@ -2971,14 +3687,24 @@
             },
             "nullable": true
           },
-          "userProfile": {
-            "$ref": "#/components/schemas/UserProfile"
-          },
           "userProfilePictures": {
             "type": "array",
             "items": {
               "$ref": "#/components/schemas/UserProfilePicture"
             },
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32",
+            "nullable": true
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32",
             "nullable": true
           },
           "companyProfile": {
@@ -3053,6 +3779,56 @@
         },
         "additionalProperties": false
       },
+      "CompanyEmployee": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyEmployeeDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobType": {
+            "type": "string",
+            "nullable": true
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          }
+        },
+        "additionalProperties": false
+      },
       "CompanyProfile": {
         "type": "object",
         "properties": {
@@ -3064,48 +3840,201 @@
             "type": "string",
             "nullable": true
           },
-          "about": {
+          "email": {
             "type": "string",
             "nullable": true
           },
-          "websiteLink": {
+          "fieldOfWork": {
             "type": "string",
             "nullable": true
+          },
+          "websiteUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialMediaLinks": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "applicationUser": {
+            "$ref": "#/components/schemas/ApplicationUser"
           },
           "accessibilityFeatures": {
-            "type": "string",
-            "nullable": true
-          },
-          "openedJobs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/OpenedJob"
+              "$ref": "#/components/schemas/AccessibilityFeature"
             },
             "nullable": true
           },
           "reviews": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Review"
+              "$ref": "#/components/schemas/CompanyReview"
             },
             "nullable": true
           },
-          "people": {
+          "openedJobs": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/Person"
+              "$ref": "#/components/schemas/Jop"
             },
+            "nullable": true
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyEmployee"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyProfilseDto": {
+        "type": "object",
+        "properties": {
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "fieldOfWork": {
+            "type": "string",
+            "nullable": true
+          },
+          "websiteUrl": {
+            "type": "string",
             "nullable": true
           },
           "socialMediaLinks": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          },
+          "accessibilityFeatures": {
             "type": "array",
             "items": {
-              "$ref": "#/components/schemas/SocialMediaLink"
+              "$ref": "#/components/schemas/AccessibilityFeatureDto"
             },
             "nullable": true
           },
-          "applicationUser": {
-            "$ref": "#/components/schemas/ApplicationUser"
+          "reviews": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyReviewDto"
+            },
+            "nullable": true
+          },
+          "employees": {
+            "type": "array",
+            "items": {
+              "$ref": "#/components/schemas/CompanyEmployeeDto"
+            },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyReview": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfile": {
+            "$ref": "#/components/schemas/UserProfile"
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyReviewDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "message": {
+            "type": "string",
+            "nullable": true
+          },
+          "rating": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "userProfileId": {
+            "type": "integer",
+            "format": "int32"
           }
         },
         "additionalProperties": false
@@ -3352,6 +4281,13 @@
               "$ref": "#/components/schemas/JopApply"
             },
             "nullable": true
+          },
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyProfile": {
+            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false
@@ -3523,68 +4459,6 @@
           },
           "userProfile": {
             "$ref": "#/components/schemas/UserProfile"
-          }
-        },
-        "additionalProperties": false
-      },
-      "OpenedJob": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "title": {
-            "type": "string",
-            "nullable": true
-          },
-          "type": {
-            "type": "string",
-            "nullable": true
-          },
-          "location": {
-            "type": "string",
-            "nullable": true
-          },
-          "salaryRange": {
-            "type": "string",
-            "nullable": true
-          },
-          "postedAt": {
-            "type": "string",
-            "format": "date-time"
-          },
-          "companyProfileId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyProfile": {
-            "$ref": "#/components/schemas/CompanyProfile"
-          }
-        },
-        "additionalProperties": false
-      },
-      "Person": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "fullName": {
-            "type": "string",
-            "nullable": true
-          },
-          "position": {
-            "type": "string",
-            "nullable": true
-          },
-          "companyProfileId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyProfile": {
-            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false
@@ -3785,39 +4659,6 @@
         },
         "additionalProperties": false
       },
-      "Review": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "reviewerName": {
-            "type": "string",
-            "nullable": true
-          },
-          "position": {
-            "type": "string",
-            "nullable": true
-          },
-          "comment": {
-            "type": "string",
-            "nullable": true
-          },
-          "rating": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyProfileId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyProfile": {
-            "$ref": "#/components/schemas/CompanyProfile"
-          }
-        },
-        "additionalProperties": false
-      },
       "Skills": {
         "type": "object",
         "properties": {
@@ -3853,31 +4694,6 @@
           "userProfileId": {
             "type": "integer",
             "format": "int32"
-          }
-        },
-        "additionalProperties": false
-      },
-      "SocialMediaLink": {
-        "type": "object",
-        "properties": {
-          "id": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "platformName": {
-            "type": "string",
-            "nullable": true
-          },
-          "url": {
-            "type": "string",
-            "nullable": true
-          },
-          "companyProfileId": {
-            "type": "integer",
-            "format": "int32"
-          },
-          "companyProfile": {
-            "$ref": "#/components/schemas/CompanyProfile"
           }
         },
         "additionalProperties": false

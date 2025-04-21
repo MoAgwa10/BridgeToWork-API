@@ -288,20 +288,10 @@ D:\visual stiduo\B2W\B2W\bin\Debug\net9.0\System.Security.Permissions.dll
 D:\visual stiduo\B2W\B2W\bin\Debug\net9.0\System.Windows.Extensions.dll
 D:\visual stiduo\B2W\B2W\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
 D:\visual stiduo\B2W\B2W\bin\Debug\net9.0\B2W.staticwebassets.runtime.json
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.AssemblyReference.cache
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.AssemblyInfoInputs.cache
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.AssemblyInfo.cs
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.CoreCompileInputs.cache
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.MvcApplicationPartsAssemblyInfo.cs
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.MvcApplicationPartsAssemblyInfo.cache
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.dll
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\refint\B2W.dll
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.pdb
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\appsettings.Development.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\appsettings.json
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.staticwebassets.endpoints.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.staticwebassets.runtime.json
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.staticwebassets.endpoints.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.exe
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.deps.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\B2W.runtimeconfig.json
@@ -562,6 +552,14 @@ C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\runtimes\win-x64
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\runtimes\win\lib\net6.0\System.Runtime.Caching.dll
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\bin\Debug\net9.0\runtimes\win\lib\net9.0\System.Windows.Extensions.dll
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.AssemblyReference.cache
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.AssemblyInfoInputs.cache
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.AssemblyInfo.cs
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.CoreCompileInputs.cache
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.MvcApplicationPartsAssemblyInfo.cs
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.MvcApplicationPartsAssemblyInfo.cache
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.sourcelink.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\scopedcss\bundle\B2W.styles.css
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.build.json
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.development.json
@@ -572,8 +570,10 @@ C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets\
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets\msbuild.buildMultiTargeting.B2W.props
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets\msbuild.buildTransitive.B2W.props
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.pack.json
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.csproj.Up2Date
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.dll
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\refint\B2W.dll
+C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.pdb
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.genruntimeconfig.cache
 C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\ref\B2W.dll
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\staticwebassets.upToDateCheck.txt
-C:\Users\Agwa\Desktop\FinalProject\B2W\B2W\B2W\obj\Debug\net9.0\B2W.sourcelink.json

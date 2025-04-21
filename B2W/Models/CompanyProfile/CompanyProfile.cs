@@ -38,7 +38,8 @@ namespace B2W.Models.CompanyProfile
         // Navigation properties
         public List<AccessibilityFeature> AccessibilityFeatures { get; set; }
         public List<CompanyReview> Reviews { get; set; }
-      
+        public List<Jop.Jop> OpenedJobs { get; set; } = new();
+
         public List<CompanyEmployee> Employees { get; set; }
     }
 }

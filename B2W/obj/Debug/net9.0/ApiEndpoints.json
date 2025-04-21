@@ -1,5 +1,100 @@
 [
   {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "GetAll",
+    "RelativePath": "api/AccessibilityFeature",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "Add",
+    "RelativePath": "api/AccessibilityFeature",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "AccessibilityFeatureDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "GetById",
+    "RelativePath": "api/AccessibilityFeature/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "Update",
+    "RelativePath": "api/AccessibilityFeature/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "dto",
+        "Type": "AccessibilityFeatureDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "Delete",
+    "RelativePath": "api/AccessibilityFeature/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.AccessibilityFeatureController",
+    "Method": "GetByCompanyProfileId",
+    "RelativePath": "api/AccessibilityFeature/by-company/{companyProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
     "ContainingType": "B2W.Controllers.AuthenticationController",
     "Method": "AddrolesAsync",
     "RelativePath": "api/Authentication/AddRole",
@@ -229,6 +324,321 @@
         "StatusCode": 200
       }
     ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "GetAllEmployees",
+    "RelativePath": "api/CompanyEmployee",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "AddEmployee",
+    "RelativePath": "api/CompanyEmployee",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "employee",
+        "Type": "CompanyEmployee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "GetEmployeeById",
+    "RelativePath": "api/CompanyEmployee/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "UpdateEmployee",
+    "RelativePath": "api/CompanyEmployee/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updated",
+        "Type": "CompanyEmployee",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "DeleteEmployee",
+    "RelativePath": "api/CompanyEmployee/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyEmployeeController",
+    "Method": "GetEmployeesByCompanyId",
+    "RelativePath": "api/CompanyEmployee/company/{companyProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "GetAllCompanyProfiles",
+    "RelativePath": "api/CompanyProfile",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": [
+      {
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CompanyProfilesDto\u002BCompanyProfilseDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "Create",
+    "RelativePath": "api/CompanyProfile",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "dto",
+        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "GetById",
+    "RelativePath": "api/CompanyProfile/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "Patch",
+    "RelativePath": "api/CompanyProfile/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updates",
+        "Type": "System.Collections.Generic.Dictionary\u00602[[System.String, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e],[System.Object, System.Private.CoreLib, Version=9.0.0.0, Culture=neutral, PublicKeyToken=7cec85d7bea7798e]]",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "Delete",
+    "RelativePath": "api/CompanyProfile/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyProfileController",
+    "Method": "GetByUserId",
+    "RelativePath": "api/CompanyProfile/ByUser/{ApplicationUserId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "ApplicationUserId",
+        "Type": "System.String",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": [
+      {
+        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "MediaTypes": [
+          "text/plain",
+          "application/json",
+          "text/json"
+        ],
+        "StatusCode": 200
+      }
+    ]
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "GetAllReviews",
+    "RelativePath": "api/CompanyReview",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "AddReview",
+    "RelativePath": "api/CompanyReview",
+    "HttpMethod": "POST",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "review",
+        "Type": "CompanyReview",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "GetReviewById",
+    "RelativePath": "api/CompanyReview/{id}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "UpdateReview",
+    "RelativePath": "api/CompanyReview/{id}",
+    "HttpMethod": "PATCH",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      },
+      {
+        "Name": "updatedReview",
+        "Type": "CompanyReview",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "DeleteReview",
+    "RelativePath": "api/CompanyReview/{id}",
+    "HttpMethod": "DELETE",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.CompanyProfileController.CompanyReviewController",
+    "Method": "GetReviewsByCompanyId",
+    "RelativePath": "api/CompanyReview/company/{companyProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyProfileId",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
   },
   {
     "ContainingType": "B2W.Controllers.UserProfileController.EducationController",
@@ -553,6 +963,22 @@
     "Parameters": [
       {
         "Name": "id",
+        "Type": "System.Int32",
+        "IsRequired": true
+      }
+    ],
+    "ReturnTypes": []
+  },
+  {
+    "ContainingType": "B2W.Controllers.JobController",
+    "Method": "GetCompanyJobs",
+    "RelativePath": "api/Job/company/{companyProfileId}",
+    "HttpMethod": "GET",
+    "IsController": true,
+    "Order": 0,
+    "Parameters": [
+      {
+        "Name": "companyProfileId",
         "Type": "System.Int32",
         "IsRequired": true
       }

@@ -30,6 +30,9 @@ namespace B2W.Migrations
                     b.Property<int>("AccessFailedCount")
                         .HasColumnType("int");
 
+                    b.Property<int?>("CompanyProfileId")
+                        .HasColumnType("int");
+
                     b.Property<string>("ConcurrencyStamp")
                         .IsConcurrencyToken()
                         .HasColumnType("nvarchar(max)");
@@ -84,6 +87,9 @@ namespace B2W.Migrations
                         .HasMaxLength(256)
                         .HasColumnType("nvarchar(256)");
 
+                    b.Property<int?>("UserProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
                     b.HasIndex("NormalizedEmail")
@@ -97,6 +103,77 @@ namespace B2W.Migrations
                     b.ToTable("AspNetUsers", (string)null);
                 });
 
+            modelBuilder.Entity("B2W.Models.CompanyProfile.AccessibilityFeature", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FeatureName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyProfileId");
+
+                    b.ToTable("AccessibilityFeatures");
+                });
+
+            modelBuilder.Entity("B2W.Models.CompanyProfile.CompanyProfile", b =>
+                {
+                    b.Property<int>("CompanyProfileId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("CompanyProfileId"));
+
+                    b.Property<string>("ApplicationUserId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(450)");
+
+                    b.Property<string>("CompanyName")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Description")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Email")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("FieldOfWork")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Location")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("SocialMediaLinks")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("UpdatedAt")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("WebsiteUrl")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("CompanyProfileId");
+
+                    b.HasIndex("ApplicationUserId")
+                        .IsUnique();
+
+                    b.ToTable("CompanyProfile");
+                });
+
             modelBuilder.Entity("B2W.Models.Jop.Jop", b =>
                 {
                     b.Property<int>("JopId")
@@ -108,6 +185,9 @@ namespace B2W.Migrations
                     b.Property<string>("AboutCompany")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("CompanyProfileId")
+                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -144,6 +224,8 @@ namespace B2W.Migrations
 
                     b.HasKey("JopId");
 
+                    b.HasIndex("CompanyProfileId");
+
                     b.HasIndex("UserId");
 
                     b.ToTable("Jops");
@@ -159,6 +241,9 @@ namespace B2W.Migrations
 
                     b.Property<string>("AnyComment")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ApplicationUserId")
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("CvFile")
                         .IsRequired()
@@ -182,11 +267,36 @@ namespace B2W.Migrations
 
                     b.HasKey("JopApplyId");
 
+                    b.HasIndex("ApplicationUserId");
+
                     b.HasIndex("JopId");
 
                     b.HasIndex("UserId");
 
                     b.ToTable("JopApplies");
+                });
+
+            modelBuilder.Entity("B2W.Models.User.Cv", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("CvFilePath")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserProfileId")
+                        .IsUnique();
+
+                    b.ToTable("Cvs");
                 });
 
             modelBuilder.Entity("B2W.Models.User.Education", b =>
@@ -197,31 +307,30 @@ namespace B2W.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Degree")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("Faculty")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("University")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Educations");
                 });
@@ -234,11 +343,7 @@ namespace B2W.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
-                    b.Property<DateTime>("EndDate")
+                    b.Property<DateTime?>("EndDate")
                         .HasColumnType("datetime2");
 
                     b.Property<string>("JobTitle")
@@ -249,14 +354,48 @@ namespace B2W.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<DateTime>("StartDate")
+                    b.Property<DateTime?>("StartDate")
                         .HasColumnType("datetime2");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Experiences");
+                });
+
+            modelBuilder.Entity("B2W.Models.User.Projects", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Description")
+                        .HasMaxLength(1000)
+                        .HasColumnType("nvarchar(1000)");
+
+                    b.Property<string>("ImageUrl")
+                        .HasMaxLength(500)
+                        .HasColumnType("nvarchar(500)");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserProfileId");
+
+                    b.ToTable("Projects");
                 });
 
             modelBuilder.Entity("B2W.Models.User.Skills", b =>
@@ -267,17 +406,16 @@ namespace B2W.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<string>("ApplicationUserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
-
                     b.Property<string>("Name")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("Id");
 
-                    b.HasIndex("ApplicationUserId");
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("Skills");
                 });
@@ -337,9 +475,8 @@ namespace B2W.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("ProfileImageUrl")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                    b.Property<int>("UserCvId")
+                        .HasColumnType("int");
 
                     b.Property<string>("WorkModel")
                         .IsRequired()
@@ -373,13 +510,12 @@ namespace B2W.Migrations
                     b.Property<DateTime?>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<string>("UserId")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(450)");
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
 
                     b.HasKey("CertificationId");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("userCertifications");
                 });
@@ -439,9 +575,14 @@ namespace B2W.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(450)");
 
+                    b.Property<int?>("UserProfileId")
+                        .HasColumnType("int");
+
                     b.HasKey("UserProfilePictureId");
 
                     b.HasIndex("UserId");
+
+                    b.HasIndex("UserProfileId");
 
                     b.ToTable("userProfilePictures");
                 });
@@ -545,6 +686,59 @@ namespace B2W.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("posts");
+                });
+
+            modelBuilder.Entity("CompanyEmployee", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyProfileId");
+
+                    b.HasIndex("UserProfileId");
+
+                    b.ToTable("CompanyEmployees");
+                });
+
+            modelBuilder.Entity("CompanyReview", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("CompanyProfileId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Message")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Rating")
+                        .HasColumnType("int");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("CompanyProfileId");
+
+                    b.HasIndex("UserProfileId");
+
+                    b.ToTable("CompanyReviews");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -680,8 +874,65 @@ namespace B2W.Migrations
                     b.ToTable("AspNetUserTokens", (string)null);
                 });
 
+            modelBuilder.Entity("MillStones", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Company")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<DateTime>("Date")
+                        .HasColumnType("datetime2");
+
+                    b.Property<string>("Title")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserProfileId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("UserProfileId");
+
+                    b.ToTable("MillStones");
+                });
+
+            modelBuilder.Entity("B2W.Models.CompanyProfile.AccessibilityFeature", b =>
+                {
+                    b.HasOne("B2W.Models.CompanyProfile.CompanyProfile", "CompanyProfile")
+                        .WithMany("AccessibilityFeatures")
+                        .HasForeignKey("CompanyProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("CompanyProfile");
+                });
+
+            modelBuilder.Entity("B2W.Models.CompanyProfile.CompanyProfile", b =>
+                {
+                    b.HasOne("B2W.Models.Authentication.ApplicationUser", "ApplicationUser")
+                        .WithOne("CompanyProfile")
+                        .HasForeignKey("B2W.Models.CompanyProfile.CompanyProfile", "ApplicationUserId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("ApplicationUser");
+                });
+
             modelBuilder.Entity("B2W.Models.Jop.Jop", b =>
                 {
+                    b.HasOne("B2W.Models.CompanyProfile.CompanyProfile", "CompanyProfile")
+                        .WithMany("OpenedJobs")
+                        .HasForeignKey("CompanyProfileId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
                     b.HasOne("B2W.Models.Authentication.ApplicationUser", "ApplicationUser")
                         .WithMany("JopSeekers")
                         .HasForeignKey("UserId")
@@ -689,20 +940,26 @@ namespace B2W.Migrations
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
+
+                    b.Navigation("CompanyProfile");
                 });
 
             modelBuilder.Entity("B2W.Models.Jop.JopApply", b =>
                 {
+                    b.HasOne("B2W.Models.Authentication.ApplicationUser", null)
+                        .WithMany("JopApplies")
+                        .HasForeignKey("ApplicationUserId");
+
                     b.HasOne("B2W.Models.Jop.Jop", "JopSeeker")
                         .WithMany("JopApplies")
                         .HasForeignKey("JopId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("B2W.Models.Authentication.ApplicationUser", "ApplicationUser")
-                        .WithMany("JopApplies")
+                        .WithMany()
                         .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .OnDelete(DeleteBehavior.NoAction)
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
@@ -710,37 +967,59 @@ namespace B2W.Migrations
                     b.Navigation("JopSeeker");
                 });
 
-            modelBuilder.Entity("B2W.Models.User.Education", b =>
+            modelBuilder.Entity("B2W.Models.User.Cv", b =>
                 {
-                    b.HasOne("B2W.Models.Authentication.ApplicationUser", "User")
-                        .WithMany("Educations")
-                        .HasForeignKey("ApplicationUserId")
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithOne("UserCv")
+                        .HasForeignKey("B2W.Models.User.Cv", "UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("B2W.Models.User.Education", b =>
+                {
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany("Educations")
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("B2W.Models.User.Experience", b =>
                 {
-                    b.HasOne("B2W.Models.Authentication.ApplicationUser", "User")
-                        .WithMany("Experience")
-                        .HasForeignKey("ApplicationUserId")
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany("Experiences")
+                        .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("User");
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("B2W.Models.User.Projects", b =>
+                {
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany("Projects")
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("B2W.Models.User.Skills", b =>
                 {
-                    b.HasOne("B2W.Models.Authentication.ApplicationUser", "applicationUser")
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
                         .WithMany("Skills")
-                        .HasForeignKey("ApplicationUserId")
+                        .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("applicationUser");
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("B2W.Models.User.UserProfile", b =>
@@ -756,13 +1035,13 @@ namespace B2W.Migrations
 
             modelBuilder.Entity("B2W.Models.UserCertifications.UserCertification", b =>
                 {
-                    b.HasOne("B2W.Models.Authentication.ApplicationUser", "ApplicationUser")
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
                         .WithMany("UserCertifications")
-                        .HasForeignKey("UserId")
+                        .HasForeignKey("UserProfileId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
-                    b.Navigation("ApplicationUser");
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("B2W.Models.UserComment.Comment", b =>
@@ -789,6 +1068,10 @@ namespace B2W.Migrations
                         .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
+
+                    b.HasOne("B2W.Models.User.UserProfile", null)
+                        .WithMany("UserProfilePictures")
+                        .HasForeignKey("UserProfileId");
 
                     b.Navigation("ApplicationUser");
                 });
@@ -827,6 +1110,44 @@ namespace B2W.Migrations
                         .IsRequired();
 
                     b.Navigation("ApplicationUser");
+                });
+
+            modelBuilder.Entity("CompanyEmployee", b =>
+                {
+                    b.HasOne("B2W.Models.CompanyProfile.CompanyProfile", "CompanyProfile")
+                        .WithMany("Employees")
+                        .HasForeignKey("CompanyProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CompanyProfile");
+
+                    b.Navigation("UserProfile");
+                });
+
+            modelBuilder.Entity("CompanyReview", b =>
+                {
+                    b.HasOne("B2W.Models.CompanyProfile.CompanyProfile", "CompanyProfile")
+                        .WithMany("Reviews")
+                        .HasForeignKey("CompanyProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany()
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.NoAction)
+                        .IsRequired();
+
+                    b.Navigation("CompanyProfile");
+
+                    b.Navigation("UserProfile");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -880,13 +1201,23 @@ namespace B2W.Migrations
                         .IsRequired();
                 });
 
+            modelBuilder.Entity("MillStones", b =>
+                {
+                    b.HasOne("B2W.Models.User.UserProfile", "UserProfile")
+                        .WithMany("MillStones")
+                        .HasForeignKey("UserProfileId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("UserProfile");
+                });
+
             modelBuilder.Entity("B2W.Models.Authentication.ApplicationUser", b =>
                 {
                     b.Navigation("Comment");
 
-                    b.Navigation("Educations");
-
-                    b.Navigation("Experience");
+                    b.Navigation("CompanyProfile")
+                        .IsRequired();
 
                     b.Navigation("JopApplies");
 
@@ -894,19 +1225,46 @@ namespace B2W.Migrations
 
                     b.Navigation("Post");
 
-                    b.Navigation("Skills");
-
-                    b.Navigation("UserCertifications");
-
                     b.Navigation("UserProfile")
                         .IsRequired();
 
                     b.Navigation("UserProfilePictures");
                 });
 
+            modelBuilder.Entity("B2W.Models.CompanyProfile.CompanyProfile", b =>
+                {
+                    b.Navigation("AccessibilityFeatures");
+
+                    b.Navigation("Employees");
+
+                    b.Navigation("OpenedJobs");
+
+                    b.Navigation("Reviews");
+                });
+
             modelBuilder.Entity("B2W.Models.Jop.Jop", b =>
                 {
                     b.Navigation("JopApplies");
+                });
+
+            modelBuilder.Entity("B2W.Models.User.UserProfile", b =>
+                {
+                    b.Navigation("Educations");
+
+                    b.Navigation("Experiences");
+
+                    b.Navigation("MillStones");
+
+                    b.Navigation("Projects");
+
+                    b.Navigation("Skills");
+
+                    b.Navigation("UserCertifications");
+
+                    b.Navigation("UserCv")
+                        .IsRequired();
+
+                    b.Navigation("UserProfilePictures");
                 });
 
             modelBuilder.Entity("B2W.Models.UserRecations.ReactionType", b =>

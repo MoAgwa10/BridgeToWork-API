@@ -217,6 +217,15 @@ namespace B2W.Controllers.UserProfileController
             _context.UserProfiles.Add(profile);
             await _context.SaveChangesAsync();
 
+            // تحديث ApplicationUser وربط الـ UserProfileId
+            var user = await _context.Users.FindAsync(dto.ApplicationUserId);
+            if (user != null)
+            {
+                user.UserProfileId = profile.Id;
+                _context.Users.Update(user);
+                await _context.SaveChangesAsync();
+            }
+
             return CreatedAtAction(nameof(GetById), new { id = profile.Id }, profile);
         }
 

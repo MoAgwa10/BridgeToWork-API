@@ -119,7 +119,6 @@ namespace B2W.Controllers.CompanyProfileController
             return Ok(company);
         }
 
-        // Create
         [HttpPost]
         public async Task<IActionResult> Create(CompanyProfilseDto dto)
         {
@@ -139,6 +138,14 @@ namespace B2W.Controllers.CompanyProfileController
 
             _context.CompanyProfiles.Add(entity);
             await _context.SaveChangesAsync();
+
+            // بعد الحفظ، نربط البروفايل باليوزر
+            var user = await _context.Users.FindAsync(dto.ApplicationUserId);
+            if (user != null)
+            {
+                user.CompanyProfileId = entity.CompanyProfileId;
+                await _context.SaveChangesAsync();
+            }
 
             return CreatedAtAction(nameof(GetById), new { id = entity.CompanyProfileId }, entity);
         }
