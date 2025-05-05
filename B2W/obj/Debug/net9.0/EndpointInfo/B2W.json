@@ -734,7 +734,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                    "$ref": "#/components/schemas/CompanyProfilesDto"
                   }
                 }
               },
@@ -742,7 +742,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                    "$ref": "#/components/schemas/CompanyProfilesDto"
                   }
                 }
               },
@@ -750,7 +750,7 @@
                 "schema": {
                   "type": "array",
                   "items": {
-                    "$ref": "#/components/schemas/CompanyProfilseDto"
+                    "$ref": "#/components/schemas/CompanyProfilesDto"
                   }
                 }
               }
@@ -766,17 +766,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/CompanyProfilseDto"
+                "$ref": "#/components/schemas/CompanyProfileCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/CompanyProfilseDto"
+                "$ref": "#/components/schemas/CompanyProfileCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/CompanyProfilseDto"
+                "$ref": "#/components/schemas/CompanyProfileCreateDto"
               }
             }
           }
@@ -809,17 +809,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               }
             }
@@ -849,17 +849,17 @@
             "content": {
               "text/plain": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               },
               "application/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               },
               "text/json": {
                 "schema": {
-                  "$ref": "#/components/schemas/CompanyProfilseDto"
+                  "$ref": "#/components/schemas/CompanyProfilesDto"
                 }
               }
             }
@@ -2949,17 +2949,17 @@
           "content": {
             "application/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserProfileDto"
+                "$ref": "#/components/schemas/UserProfileCreateDto"
               }
             },
             "text/json": {
               "schema": {
-                "$ref": "#/components/schemas/UserProfileDto"
+                "$ref": "#/components/schemas/UserProfileCreateDto"
               }
             },
             "application/*+json": {
               "schema": {
-                "$ref": "#/components/schemas/UserProfileDto"
+                "$ref": "#/components/schemas/UserProfileCreateDto"
               }
             }
           }
@@ -3786,6 +3786,14 @@
             "type": "integer",
             "format": "int32"
           },
+          "fullName": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobType": {
+            "type": "string",
+            "nullable": true
+          },
           "companyProfileId": {
             "type": "integer",
             "format": "int32"
@@ -3910,7 +3918,57 @@
         },
         "additionalProperties": false
       },
-      "CompanyProfilseDto": {
+      "CompanyProfileCreateDto": {
+        "type": "object",
+        "properties": {
+          "companyProfileId": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "companyName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "fieldOfWork": {
+            "type": "string",
+            "nullable": true
+          },
+          "websiteUrl": {
+            "type": "string",
+            "nullable": true
+          },
+          "socialMediaLinks": {
+            "type": "string",
+            "nullable": true
+          },
+          "location": {
+            "type": "string",
+            "nullable": true
+          },
+          "description": {
+            "type": "string",
+            "nullable": true
+          },
+          "createdAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "updatedAt": {
+            "type": "string",
+            "format": "date-time"
+          },
+          "applicationUserId": {
+            "type": "string",
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "CompanyProfilesDto": {
         "type": "object",
         "properties": {
           "companyProfileId": {
@@ -4886,6 +4944,67 @@
             "items": {
               "$ref": "#/components/schemas/UserCertification"
             },
+            "nullable": true
+          }
+        },
+        "additionalProperties": false
+      },
+      "UserProfileCreateDto": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "integer",
+            "format": "int32"
+          },
+          "firstName": {
+            "type": "string",
+            "nullable": true
+          },
+          "lastName": {
+            "type": "string",
+            "nullable": true
+          },
+          "email": {
+            "type": "string",
+            "nullable": true
+          },
+          "gender": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "jobType": {
+            "type": "string",
+            "nullable": true
+          },
+          "workModel": {
+            "type": "string",
+            "nullable": true
+          },
+          "experienceLevel": {
+            "type": "string",
+            "nullable": true
+          },
+          "desiredJobTitle": {
+            "type": "string",
+            "nullable": true
+          },
+          "disabilityType": {
+            "type": "string",
+            "nullable": true
+          },
+          "fontSize": {
+            "type": "string",
+            "nullable": true
+          },
+          "darkMode": {
+            "type": "boolean"
+          },
+          "applicationUserId": {
+            "type": "string",
             "nullable": true
           }
         },

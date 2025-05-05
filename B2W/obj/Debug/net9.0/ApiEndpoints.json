@@ -430,7 +430,7 @@
     "Parameters": [],
     "ReturnTypes": [
       {
-        "Type": "System.Collections.Generic.IEnumerable\u00601[[CompanyProfilesDto\u002BCompanyProfilseDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
+        "Type": "System.Collections.Generic.IEnumerable\u00601[[CompanyProfilesDto, B2W, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null]]",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -450,7 +450,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "Type": "CompanyProfileCreateDto",
         "IsRequired": true
       }
     ],
@@ -472,7 +472,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "Type": "CompanyProfilesDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -535,7 +535,7 @@
     ],
     "ReturnTypes": [
       {
-        "Type": "CompanyProfilesDto\u002BCompanyProfilseDto",
+        "Type": "CompanyProfilesDto",
         "MediaTypes": [
           "text/plain",
           "application/json",
@@ -1795,7 +1795,7 @@
     "Parameters": [
       {
         "Name": "dto",
-        "Type": "B2W.Dto.UserProfileDtos.UserProfileDto",
+        "Type": "UserProfileCreateDto",
         "IsRequired": true
       }
     ],

@@ -6,7 +6,7 @@ using Microsoft.EntityFrameworkCore.Migrations;
 namespace B2W.Migrations
 {
     /// <inheritdoc />
-    public partial class Ag22 : Migration
+    public partial class Tester212 : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

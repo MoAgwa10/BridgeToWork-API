@@ -165,40 +165,123 @@ namespace B2W.Controllers.UserProfileController
             return Ok(dto);
         }
 
-        // Get by Id
         [HttpGet("{id}")]
         public async Task<ActionResult<UserProfileDto>> GetById(int id)
         {
             var profile = await _context.UserProfiles
-                .Where(u => u.Id == id)
-                .Select(u => new UserProfileDto
-                {
-                    Id = u.Id,
-                    FirstName = u.FirstName,
-                    LastName = u.LastName,
-                    Email = u.Email,
-                    Gender = u.Gender,
-                    JobTitle = u.JobTitle,
-                    JobType = u.JobType,
-                    WorkModel = u.WorkModel,
-                    ExperienceLevel = u.ExperienceLevel,
-                    DesiredJobTitle = u.DesiredJobTitle,
-                    DisabilityType = u.DisabilityType,
-                    FontSize = u.FontSize,
-                    DarkMode = u.DarkMode,
-                    ApplicationUserId = u.ApplicationUserId
-                }).FirstOrDefaultAsync();
+                .Include(u => u.Experiences)
+                .Include(u => u.Educations)
+                .Include(u => u.Skills)
+                .Include(u => u.Projects)
+                .Include(u => u.MillStones)
+                .Include(u => u.UserCertifications)
+                .Include(u => u.UserCv)
+                .FirstOrDefaultAsync(u => u.Id == id);
 
-            if (profile == null) return NotFound();
-            return Ok(profile);
+            if (profile == null)
+                return NotFound();
+
+            var profilePicture = await _context.userProfilePictures
+                .Where(p => p.UserId == profile.ApplicationUserId)
+                .OrderByDescending(p => p.CreatedAt)
+                .FirstOrDefaultAsync();
+
+            var dto = new UserProfileDto
+            {
+                Id = profile.Id,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                Email = profile.Email,
+                Gender = profile.Gender,
+                JobTitle = profile.JobTitle,
+                JobType = profile.JobType,
+                WorkModel = profile.WorkModel,
+                ExperienceLevel = profile.ExperienceLevel,
+                DesiredJobTitle = profile.DesiredJobTitle,
+                DisabilityType = profile.DisabilityType,
+                FontSize = profile.FontSize,
+                DarkMode = profile.DarkMode,
+                ApplicationUserId = profile.ApplicationUserId,
+
+                Experiences = profile.Experiences.Select(e => new ExperienceDto
+                {
+                    Id = e.Id,
+                    JobTitle = e.JobTitle,
+                    OrganizationName = e.OrganizationName,
+                    StartDate = e.StartDate,
+                    EndDate = e.EndDate,
+                    UserProfileId = e.UserProfileId,
+                }).ToList(),
+
+                Educations = profile.Educations.Select(ed => new EducationDto
+                {
+                    Id = ed.Id,
+                    University = ed.University,
+                    Faculty = ed.Faculty,
+                    Degree = ed.Degree,
+                    StartDate = ed.StartDate,
+                    EndDate = ed.EndDate,
+                    UserProfileId = ed.UserProfileId,
+                }).ToList(),
+
+                Skills = profile.Skills.Select(s => new SkillsDto
+                {
+                    Id = s.Id,
+                    Name = s.Name,
+                    UserProfileId = s.UserProfileId,
+                }).ToList(),
+
+                Projects = profile.Projects.Select(p => new ProjectsDto
+                {
+                    Id = p.Id,
+                    Title = p.Title,
+                    Description = p.Description,
+                    ImageUrl = p.ImageUrl,
+                    UserProfileId = p.UserProfileId,
+                }).ToList(),
+
+                MillStones = profile.MillStones.Select(m => new MillStoneDto
+                {
+                    Id = m.Id,
+                    Title = m.Title,
+                    Company = m.Company,
+                    Date = m.Date,
+                    UserProfileId = m.UserProfileId,
+                }).ToList(),
+
+                UserCertifications = profile.UserCertifications.Select(cert => new UserCertificationDto
+                {
+                    CertificationId = cert.CertificationId,
+                    Description = cert.Description,
+                    Image = cert.Image,
+                    CreatedAt = cert.CreatedAt,
+                    UpdatedAt = cert.UpdatedAt,
+                    UserProfileId = cert.UserProfileId
+                }).ToList(),
+
+                Cv = profile.UserCv != null ? new CvDto
+                {
+                    CvFilePath = profile.UserCv.CvFilePath,
+                    UserProfileId = profile.UserCv.UserProfileId
+                } : null,
+
+                UserProfilePicture = profilePicture != null ? new UserProfilePictureDto
+                {
+                    Id = profilePicture.UserProfilePictureId,
+                    Url = $"data:image/jpeg;base64,{Convert.ToBase64String(profilePicture.Image)}"
+                } : null
+            };
+
+            return Ok(dto);
         }
 
-        // Create
+
         [HttpPost]
-        public async Task<IActionResult> Create(UserProfileDto dto)
+        public async Task<IActionResult> Create([FromBody] UserProfileCreateDto dto)
         {
             var profile = new UserProfile
             {
+                
                 FirstName = dto.FirstName,
                 LastName = dto.LastName,
                 Email = dto.Email,
@@ -217,7 +300,7 @@ namespace B2W.Controllers.UserProfileController
             _context.UserProfiles.Add(profile);
             await _context.SaveChangesAsync();
 
-            // تحديث ApplicationUser وربط الـ UserProfileId
+            // ربط UserProfileId في جدول المستخدم
             var user = await _context.Users.FindAsync(dto.ApplicationUserId);
             if (user != null)
             {
@@ -225,9 +308,27 @@ namespace B2W.Controllers.UserProfileController
                 _context.Users.Update(user);
                 await _context.SaveChangesAsync();
             }
+            var responseDto = new UserProfileCreateDto
+            {
+                id=profile.Id,
+                FirstName = profile.FirstName,
+                LastName = profile.LastName,
+                Email = profile.Email,
+                Gender = profile.Gender,
+                JobTitle = profile.JobTitle,
+                JobType = profile.JobType,
+                WorkModel = profile.WorkModel,
+                ExperienceLevel = profile.ExperienceLevel,
+                DesiredJobTitle = profile.DesiredJobTitle,
+                DisabilityType = profile.DisabilityType,
+                FontSize = profile.FontSize,
+                DarkMode = profile.DarkMode,
+                ApplicationUserId = profile.ApplicationUserId
+            };
 
-            return CreatedAtAction(nameof(GetById), new { id = profile.Id }, profile);
+            return CreatedAtAction(nameof(GetById), new { id = profile.Id }, responseDto);
         }
+
 
         // Patch
         [HttpPatch("{id}")]

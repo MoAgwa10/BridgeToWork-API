@@ -2,8 +2,8 @@
 
 public class CompanyProfilesDto
 {
-    public class CompanyProfilseDto
-    {
+   
+    
         public int CompanyProfileId { get; set; }
 
         public string CompanyName { get; set; } = null!;
@@ -32,5 +32,5 @@ public class CompanyProfilesDto
         public List<CompanyReviewDto>? Reviews { get; set; }
 
         public List<CompanyEmployeeDto>? Employees { get; set; }
-   }
+   
 } 

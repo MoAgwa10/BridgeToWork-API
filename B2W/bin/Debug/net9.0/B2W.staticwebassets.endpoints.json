@@ -3,6 +3,88 @@
   "ManifestType": "Build",
   "Endpoints": [
     {
+      "Route": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.k7c9fmorjm.pdf",
+      "AssetFile": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227788"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 04 May 2025 20:58:55 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k7c9fmorjm"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ="
+        },
+        {
+          "Name": "label",
+          "Value": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf"
+        }
+      ]
+    },
+    {
+      "Route": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "AssetFile": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227788"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 04 May 2025 20:58:55 GMT"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ="
+        }
+      ]
+    },
+    {
       "Route": "cvs/89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",
       "AssetFile": "cvs/89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",
       "Selectors": [],

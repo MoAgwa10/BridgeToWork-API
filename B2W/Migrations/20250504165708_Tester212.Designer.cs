@@ -12,8 +12,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace B2W.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    [Migration("20250421163232_Ag22")]
-    partial class Ag22
+    [Migration("20250504165708_Tester212")]
+    partial class Tester212
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)

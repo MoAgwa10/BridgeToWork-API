@@ -1,5 +1,23 @@
 ﻿<Project>
   <ItemGroup>
+    <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\cvs\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf'))">
+      <SourceType>Package</SourceType>
+      <SourceId>B2W</SourceId>
+      <ContentRoot>$(MSBuildThisFileDirectory)..\staticwebassets\</ContentRoot>
+      <BasePath>_content/B2W</BasePath>
+      <RelativePath>cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf</RelativePath>
+      <AssetKind>All</AssetKind>
+      <AssetMode>All</AssetMode>
+      <AssetRole>Primary</AssetRole>
+      <RelatedAsset></RelatedAsset>
+      <AssetTraitName></AssetTraitName>
+      <AssetTraitValue></AssetTraitValue>
+      <Fingerprint>k7c9fmorjm</Fingerprint>
+      <Integrity>EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=</Integrity>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+      <CopyToPublishDirectory>PreserveNewest</CopyToPublishDirectory>
+      <OriginalItemSpec>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\cvs\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf'))</OriginalItemSpec>
+    </StaticWebAsset>
     <StaticWebAsset Include="$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\cvs\89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf'))">
       <SourceType>Package</SourceType>
       <SourceId>B2W</SourceId>

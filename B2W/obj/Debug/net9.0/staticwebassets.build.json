@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "gd53OFejivyyGHxe9U2fDWYLXlR1Jbt1jX32uaebqGA=",
+  "Hash": "Ueqs/k279tIUy5O1Zt2ZZutiyx1jms+OTo2nKaxpCWQ=",
   "Source": "B2W",
   "BasePath": "_content/B2W",
   "Mode": "Default",
@@ -16,6 +16,27 @@
     }
   ],
   "Assets": [
+    {
+      "Identity": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "SourceId": "B2W",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\",
+      "BasePath": "_content/B2W",
+      "RelativePath": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets#[.{fingerprint}]?.pdf",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "k7c9fmorjm",
+      "Integrity": "EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\cvs\\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf"
+    },
     {
       "Identity": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",
       "SourceId": "B2W",
@@ -186,6 +207,88 @@
     }
   ],
   "Endpoints": [
+    {
+      "Route": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.k7c9fmorjm.pdf",
+      "AssetFile": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227788"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 04 May 2025 20:58:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "k7c9fmorjm"
+        },
+        {
+          "Name": "label",
+          "Value": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ="
+        }
+      ]
+    },
+    {
+      "Route": "cvs/46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "AssetFile": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\46eb9ab1-fd76-4431-a155-769a3a4fbc7b_Mohamed Agwa Sheets.pdf",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "227788"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "application/pdf"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Sun, 04 May 2025 20:58:55 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "no-cache"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-EG0GCart9id2Eygd2SyTAycoBuRiJC1BaMltgIEyyqQ="
+        }
+      ]
+    },
     {
       "Route": "cvs/89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",
       "AssetFile": "C:\\Users\\Agwa\\Desktop\\FinalProject\\B2W\\B2W\\B2W\\wwwroot\\cvs\\89d11ead-3658-4fb2-9baf-b76c05fb443e.pdf",

@@ -35,6 +35,9 @@ namespace B2W
 
 
 
+            builder.Services.AddControllers()
+                .AddJsonOptions(x =>
+                    x.JsonSerializerOptions.ReferenceHandler = System.Text.Json.Serialization.ReferenceHandler.IgnoreCycles);
 
 
             builder.Services.AddDbContext<ApplicationDbContext>(options =>
@@ -76,12 +79,34 @@ namespace B2W
 
             var app = builder.Build();
 
+
             // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
-                app.UseSwaggerUI(op => op.SwaggerEndpoint("/swagger/v1/swagger.json", "WELCOME MAZEN"));
+                app.UseSwaggerUI(op => op.SwaggerEndpoint("/swagger/v1/swagger.json", "WELCOME Team"));
             }
+
+
+
+            using (var scope = app.Services.CreateScope())
+            {
+                var roleManager = scope.ServiceProvider.GetRequiredService<RoleManager<IdentityRole>>();
+
+                string[] roles = { "User", "Admin" };
+
+                foreach (var role in roles)
+                {
+                    var roleExists = roleManager.RoleExistsAsync(role).GetAwaiter().GetResult();
+                    if (!roleExists)
+                    {
+                        roleManager.CreateAsync(new IdentityRole(role)).GetAwaiter().GetResult();
+                    }
+                }
+            }
+
+
+
 
             app.UseStaticFiles();
             app.UseHttpsRedirection();
