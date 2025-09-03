@@ -10,7 +10,6 @@ An **Inclusive Social Media and Job Platform** designed specifically to empower 
 - 🧑‍🤝‍🧑 Social Networking Features  
 - 📄 User Profiles (Job Seekers, Companies, Supporters)  
 - 🛠️ Accessibility-Focused Design  
-- 🎯 Admin Panel for Moderation  
 - 🔐 Secure Authentication 
 
 ---
